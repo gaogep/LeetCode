@@ -4,6 +4,7 @@ class Treeroot(object):
         self.left = None
         self.right = None
 
+
 class Solution(object):
     def inorderTraversal(self, root):
         """
@@ -46,12 +47,3 @@ class Solution(object):
         while stack2:
             res.append(stack2.pop().val)
         return res
-
-# T1 = Treeroot(1)
-# T2 = Treeroot(2)
-# T3 = Treeroot(3)
-# T1.right = T2
-# T2.left = T3
-
-s = Solution()
-print(s.postorder(T1))

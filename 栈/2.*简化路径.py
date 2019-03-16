@@ -25,5 +25,3 @@ class Solution(object):
             ans = "/" + ans
         # print "ans:", ans
         return ans
-
-print(Solution.simplifyPath("/home/../zpf/"))

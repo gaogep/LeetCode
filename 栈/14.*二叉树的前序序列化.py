@@ -1,5 +1,5 @@
 class Solution(object):
-    # 空节点的数量 = 非空节点的数量 + 1
+    # 叶节点数目比非叶节点多1，并且不到最后，res不能<=0
     def isValidSerialization(self, preorder):
         """
         :type preorder: str

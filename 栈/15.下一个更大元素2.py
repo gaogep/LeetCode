@@ -39,7 +39,6 @@ class Solution:
             while stack and nums[stack[-1]] < nums[i%nums_len]:
                 res[stack.pop()] = nums[i%nums_len]   
             stack.append(i%nums_len)
-            
         return res
 
 

@@ -46,13 +46,17 @@
 #
 class Solution:
     def nextGreaterElement(self, nums1, nums2):
+        # 利用单调递减的栈解决该题
+        # 如果下一个元素比单调栈中栈顶的元素要大
+        # 说明这个元素是栈顶元素的下一个最大的元素
+        # 弹出栈顶元素并用字典记录它的下一个最大元素
         dic = {}
         stack = []
         for n in nums2:
             while stack and stack[-1] < n:
                 dic[stack.pop()] = n
             stack.append(n)
-        return [dic.get(i , -1) for i in nums1]
+        return [dic.get(i, -1) for i in nums1]
 
             
 s = Solution()

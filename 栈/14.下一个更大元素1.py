@@ -46,24 +46,14 @@
 #
 class Solution:
     def nextGreaterElement(self, nums1, nums2):
-        res = []
-        for num1 in nums1:
-            loc = nums2.index(num1)
-            tnums2 = nums2[loc+1:]
-            if not tnums2:
-                res.append(-1)
-                continue
+        dic = {}
+        stack = []
+        for n in nums2:
+            while stack and stack[-1] < n:
+                dic[stack.pop()] = n
+            stack.append(n)
+        return [dic.get(i , -1) for i in nums1]
 
-            flg = 0
-            for num2 in tnums2:
-                if num2 > num1:
-                    res.append(num2)
-                    break
-                flg += 1
-                
-            if flg == len(tnums2):
-                res.append(-1)
-        return res
             
 s = Solution()
 print(s.nextGreaterElement([1,3,5,2,4], [6,5,4,3,2,1,7]))

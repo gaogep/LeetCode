@@ -14,7 +14,6 @@ class MyStack(object):
         :rtype: None
         """
         self.stack.append(x)
-        self.flg += 1
         
 
     def pop(self):

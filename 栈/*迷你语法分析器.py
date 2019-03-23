@@ -47,4 +47,4 @@ class Solution(object):
         :type s: str
         :rtype: NestedInteger
         """
-        nes = NestedInteger()
+        

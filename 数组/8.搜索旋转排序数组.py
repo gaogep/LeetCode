@@ -39,22 +39,43 @@
 # 如果num[mid] < num[r]，说明我们这个mid与r在同一个递增序列，我们减少r，令r=mid，缩小范围去查找断点
 # 如果num[mid] > num[r]，说明mid与r在2个递增序列，增大L,令l= mid+1, 不断逼近断点。
 
+
 class Solution:
     def search(self, nums, target):
-        # 查找旋转点
-        pass
-
-    def binarysearch(self, nums, target):
-        low = 0
-        high = len(nums) - 1
-        while low < high:
-            mid = (low + high) // 2
-            if nums[mid] > target:
-                high = mid - 1
-            elif nums[mid] < target:
-                low = mid + 1
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        # 先找到两个第二个升序数组的第一项的index
+        l = 0
+        r = len(nums) -1
+        while l < r:
+            mid = (l + r)//2
+            if nums[mid] > nums[r]:
+                l = mid + 1
             else:
-                return mid
-        return -1
-        
-
+                r = mid
+        pol = l
+        ans = self.binary_search(target, nums[:pol])
+        if ans == -1:
+            ans = self.binary_search(target, nums[pol:])
+            if ans != -1:
+                ans += len(nums[:pol])
+ 
+        return ans
+    
+    def binary_search(self, target, nums):
+        index = -1
+        l = 0
+        r = len(nums) - 1
+        while l <= r:
+            mid = (l+r)//2
+            if nums[mid] < target:
+                l = mid + 1
+            elif nums[mid] > target:
+                r = mid - 1
+            else:
+                index = mid
+                break
+        return index

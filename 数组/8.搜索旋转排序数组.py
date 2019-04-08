@@ -33,13 +33,8 @@
 # 输出: -1
 # 
 # 
-
-# binarysearch是用来对2数组分别二分查找的。找断点比较有意思：我们通过l 和 R 求 mid， 
-# 通过比较mid和最右边的r的值，我们去判断第二段递增序列的第一个点。最右边的r永远是在递增序列中，
-# 如果num[mid] < num[r]，说明我们这个mid与r在同一个递增序列，我们减少r，令r=mid，缩小范围去查找断点
-# 如果num[mid] > num[r]，说明mid与r在2个递增序列，增大L,令l= mid+1, 不断逼近断点。
-
-
+# 本题的思路在于利用二分查找查找两个有序的序列
+# 其关键点在于找到第二个有序序列的其实位置
 class Solution:
     def search(self, nums, target):
         """
@@ -52,10 +47,16 @@ class Solution:
         r = len(nums) -1
         while l < r:
             mid = (l + r)//2
+            # 首先要明白的是最右边的指针永远处在一个递增序列中
+            # 如果中间的数字比右边的大 那么mid与r处在两个递增序列之中
+            # 将左指针赋值为　mid + 1　继续寻找第二个序列的第一项
             if nums[mid] > nums[r]:
                 l = mid + 1
+            # 如果中间的数字比右边的小 说明二者处在同一个递增的序列中
+            # 那么就要缩小右指针的范围　令 r = mid
             else:
                 r = mid
+
         pol = l
         ans = self.binary_search(target, nums[:pol])
         if ans == -1:
@@ -79,3 +80,6 @@ class Solution:
                 index = mid
                 break
         return index
+
+s = Solution()
+s.search([4, 5, 6, 7, 0, 1, 2], 7)

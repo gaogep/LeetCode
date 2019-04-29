@@ -1,3 +1,6 @@
+from collections import deque
+
+
 graph = {}
 graph['you'] = ['bob', 'alice', 'claire']
 graph['bob'] = ['anju', 'peggy']
@@ -8,7 +11,6 @@ graph['peggy'] = []
 graph['thom'] = []
 graph['jonny'] = []
 
-from collections import deque
 
 def bfs(start):
     search_queue = deque()
@@ -17,8 +19,8 @@ def bfs(start):
     while search_queue:
         person = search_queue.popleft()
         if person not in searchd:
-            print(person)
             search_queue += graph[person]
             searchd.append(person)
+        print(person)
 
 bfs('you')

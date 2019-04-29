@@ -7,13 +7,29 @@ graph['anju'] = []
 graph['peg'] = []
 graph['thom'] = []
 graph['jonny'] = []
-
+# ---------
 searchd = []
-def dfs(start):
+
+
+def dfsr(start):
     for node in graph[start]:
         if node not in searchd:
             print(node)
             searchd.append(node)
-            dfs(node)
+            dfsr(node)
 
-dfs('you')
+
+def dfsl(start):
+    stack = []
+    meet = set()
+    stack.append(start)
+    meet.add(start)
+    while stack:
+        tmp = stack.pop()
+        for node in graph[tmp]:
+            if node not in meet:
+                stack.append(node)
+                meet.add(node)
+        print(tmp)
+
+dfsr("you")

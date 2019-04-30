@@ -1,37 +1,36 @@
-# 图
-graph = {}
-graph['start'] = {'a': 6, 'b': 2}
-graph['a'] = {'fin': 1}
-graph['b'] = {'a': 3, 'fin': 5}
-graph['fin'] = {}
+import heapq  # 以优先队列的方式实现带权图的单源最短路算法
+import math
 
-costs = {'a': 6, 'b': 2, 'fin': float('inf')}
-parents = {'a': 'start', 'b': 'start', 'fin': None}
-collected = []
-
-
-def find_lowest_cost(costs):
-    lowest_cost_node = None
-    if costs:
-        tmp = min(costs.items(), key=lambda x:x[1])[0]
-        if tmp not in collected:
-                lowest_cost_node = tmp
-    return lowest_cost_node
+graph = {
+    "A": {"B": 5, "C": 1},
+    "B": {"A": 5, "C": 2, "D": 1},
+    "C": {"A": 1, "B": 2, "D": 4, "E": 8},
+    "D": {"B": 1, "C": 4, "E": 3, "F": 6},
+    "E": {"C": 8, "D": 3},
+    "F": {"D": 6}
+}
 
 
-def dijkstra():
-    node = find_lowest_cost(costs)
-    while node is not None:
-        cost = costs[node]
-        neighbors = graph[node]
-        for n in neighbors:
-            new_cost = cost + neighbors[n]
-            if new_cost < costs[n]:   # 为什么其他点的开销要设置为无穷大的原因在这个不等式
-                costs[n] = new_cost
-                parents[n] = node
-        collected.append(node)
-        costs.pop(node)
-        node = find_lowest_cost(costs)
+def Dijkstra(graph, s):
+    pqueue = []
+    heapq.heappush(pqueue, (0, s))
+    seen = set()
+    parent = {s: None}
+    distance = {s: 0}
 
-dijkstra()
-print(parents)
+    while pqueue:
+        pair = heapq.heappop(pqueue)
+        dist = pair[0]
+        vertex = pair[1]
+        # 只有一个点从队列中被弹出来以后才会被认为是看到过了
+        seen.add(vertex)
+        for w in graph[vertex].keys():
+            if w not in seen:
+                # 如果从Vertex到W的花费比直接从起点到W的花费更小
+                # 更新父节点表以及距离表
+                dist + graph[vertex][w] < distance.get(w, math.inf):
+                    heapq.heappush(pqueue, (dist + graph[vertex][w], w))
+                    parent[w] = vertex
+                    distance[w] = dist + graph[vertex][w]
+
+    return parent, distance

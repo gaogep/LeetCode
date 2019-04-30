@@ -5,7 +5,7 @@ def radixsort(arr, times):
     for time in range(times):
         buckets = [[] for i in range(10)]
         for num in arr:
-            buckets[num//(10**time)%10].append(num)
+            buckets[num//(10**time) % 10].append(num)
         arr = [num for bucket in buckets for num in bucket]
     return arr
 

@@ -13,14 +13,15 @@ def insertion(arr, gap):
             index -= gap
         arr[index] = tmp
     return arr
-    
+
 
 def shell(arr):
     seq = [929, 505, 209, 109, 41, 19, 5, 1]
-    _seq = filter(lambda x:x<len(arr), seq)
+    _seq = filter(lambda x: x < len(arr), seq)
     for gap in _seq:
         arr = insertion(arr, gap)
     return arr
+
 
 # print(insertion(my_list, 1))
 print(shell(my_list))

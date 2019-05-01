@@ -11,4 +11,5 @@ def insertion(arr):
         arr[index] = tmp
     return arr
 
+
 print(insertion(my_list))

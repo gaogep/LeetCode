@@ -3,7 +3,7 @@ def binary_serach(arr, item):
     high = len(arr) - 1
 
     while low <= high:
-        mid = int((low + high) / 2)
+        mid = (low + high) // 2
         if arr[mid] > item:
             high = mid - 1
         elif arr[mid] < item:
@@ -11,6 +11,7 @@ def binary_serach(arr, item):
         else:
             return mid
     return '查找的元素不存在'
+
 
 my_list = [1, 3, 5, 7, 9]
 print(binary_serach(my_list, 5))

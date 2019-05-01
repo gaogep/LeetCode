@@ -28,7 +28,7 @@ def Dijkstra(graph, s):
             if w not in seen:
                 # 如果从Vertex到W的花费比直接从起点到W的花费更小
                 # 更新父节点表以及距离表
-                dist + graph[vertex][w] < distance.get(w, math.inf):
+                if dist + graph[vertex][w] < distance.get(w, math.inf):
                     heapq.heappush(pqueue, (dist + graph[vertex][w], w))
                     parent[w] = vertex
                     distance[w] = dist + graph[vertex][w]

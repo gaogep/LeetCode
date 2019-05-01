@@ -1,6 +1,3 @@
-from collections import deque
-
-
 graph = {}
 graph['you'] = ['bob', 'alice', 'claire']
 graph['bob'] = ['anju', 'peggy']
@@ -27,5 +24,6 @@ def bfs(start):
                 queue.append(node)
         print(tmp)
     print(parent)
+
 
 bfs('you')

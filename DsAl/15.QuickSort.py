@@ -10,14 +10,16 @@
 #         arr[low], arr[high] = arr[high], arr[low]
 #     return arr[center]
 
+
 def quick_sort(arr):
     if len(arr) < 2:
         return arr
     # pivot = middle(arr)
     pivot = arr[0]
     arr.remove(pivot)
-    left = [i for i in arr if i <= pivot]
+    left = [i for i in arr if i < pivot]
     right = [i for i in arr if i > pivot]
     return quick_sort(left) + [pivot] + quick_sort(right)
-    
+
+
 print(quick_sort([8, 5, 63, 21, 19, 1, 76, 2, 9, 18, 33]))

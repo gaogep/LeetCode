@@ -3,11 +3,13 @@ from random import shuffle
 my_list = [i for i in range(50)]
 shuffle(my_list)
 
-def MergeSort(arr):
+
+def divide(arr):
     if len(arr) < 2:
         return arr
-    mid = int(len(arr)/2)
-    return merge(MergeSort(arr[:mid]), MergeSort(arr[mid:]))
+    mid = len(arr) // 2
+    return merge(divide(arr[:mid]), divide(arr[mid:]))
+
 
 def merge(arr1, arr2):
     result = []
@@ -19,5 +21,10 @@ def merge(arr1, arr2):
     result += arr1
     result += arr2
     return result
+
+
+def MergeSort(arr):
+    return divide(arr)
+
 
 print(MergeSort(my_list))

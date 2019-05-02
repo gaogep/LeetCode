@@ -4,6 +4,7 @@ my_list = [i for i in range(100)]
 shuffle(my_list)
 print(my_list)
 
+
 def adjust(arr, root, rest):
     init_val = arr[root]
     parent = root
@@ -28,5 +29,6 @@ def heapsort(arr):
         arr[0], arr[i] = arr[i], arr[0]
         adjust(arr, 0, i)
     return arr
+
 
 print(heapsort(my_list))

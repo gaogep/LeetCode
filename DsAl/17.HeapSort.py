@@ -25,7 +25,6 @@ def heapsort(arr):
     for i in range(int(length/2)-1, -1, -1):
         adjust(arr, i, length)
     for i in range(length-1, 0, -1):
-        print(i)
         arr[0], arr[i] = arr[i], arr[0]
         adjust(arr, 0, i)
     return arr

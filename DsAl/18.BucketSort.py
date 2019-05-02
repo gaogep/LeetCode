@@ -10,12 +10,7 @@ def bucketsort(arr):
     bucket = [0 for i in range(max_val+1)]
     for val in arr:
         bucket[val] = 1
-
-    arr = []
-    for i in range(len(bucket)):
-        if bucket[i] != 0:
-            arr.append(i)
-    return arr
+    return [i for i in range(max_val+1) if bucket[i]]
 
 
 print(bucketsort(my_list))

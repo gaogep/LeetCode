@@ -13,7 +13,7 @@ def divide(arr):
 
 def merge(arr1, arr2):
     result = []
-    while len(arr1) > 0 and len(arr2) > 0:
+    while arr1 and arr2:
         if arr1[0] < arr2[0]:
             result.append(arr1.pop(0))
         else:

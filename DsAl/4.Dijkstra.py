@@ -34,3 +34,8 @@ def Dijkstra(graph, s):
                     distance[w] = dist + graph[vertex][w]
 
     return parent, distance
+
+
+p, d = Dijkstra(graph, "A")
+print(p)
+print(d)

@@ -30,6 +30,7 @@ def repeat_optimize(arr):
         for i in range(len(arr)):
             while arr[i] != i:
                 t = arr[i]
+                # 判断索引和该索引上的数字是否相等
                 if arr[i] == arr[t]:
                     res.add(arr[i])
                     break

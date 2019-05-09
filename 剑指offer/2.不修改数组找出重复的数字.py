@@ -21,6 +21,7 @@ def findRepNoModify1(arr):
 
 
 # 利用二分查找思想对要查找的数字进行拆分
+# 例如数组长度为8 开始就是1 结束就是7 中间值为4
 def findRepNoModify2(arr):
     arrlen = len(arr)
     if arrlen > 1:
@@ -29,6 +30,7 @@ def findRepNoModify2(arr):
         while start <= end:
             mid = (start + end) >> 1
             # 计算[start, mid]数字之间的数目
+            # 根据cnt得到重复数字区间
             cnt = cntRange(arr, start, mid)
 
             # 当只取到一个数字时，如果该数字出现数目大于1，就是重复数字

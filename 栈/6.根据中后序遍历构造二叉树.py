@@ -20,4 +20,4 @@ class Solution(object):
         root.left = self.buildTree(inorder[:index], postorder[:index])
         # 注意这里 postorder[index:-1] 的作用是剔除掉最后一个根节点
         root.right = self.buildTree(inorder[index+1:], postorder[index:-1])
-        return root 
+        return root

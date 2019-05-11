@@ -18,7 +18,7 @@ class Solution(object):
         # 根据前序遍历的结果获取根节点
         root = TreeNode(preorder[0])
         # 在中序遍历的结果中找到根节点的位置
-        index = inorder.index(root)
+        index = inorder.index(preorder[0])
         # 中序遍历结果中 根节点的左侧为左子树的中序遍历结果
         left_tree = inorder[:index]
         # 中序遍历结果中 跟几点的右侧为右子树的终须遍历结果
@@ -31,5 +31,6 @@ class Solution(object):
 
         return root
 
+
 s = Solution()
-s.buildTree([3,9,20,15,7], [9,3,15,20,7])
+s.buildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7])

@@ -7,12 +7,14 @@ class listNode:
         self.Next = Next
 
     # 反着往链表里加数
+    # 用法: head = head.insertVal1(5)
     def insertVal1(self, Value):
         next_node = listNode(Value)
         next_node.Next = self
         return next_node
 
     # 正着往链表里加数
+    # 用法: head.insertVal2(5)
     def insertVal2(self, Value):
         next_node = listNode(Value)
         while self.Next:

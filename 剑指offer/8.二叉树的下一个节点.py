@@ -22,7 +22,7 @@ def findNext(tNode):
             tNoder = tNoder.left
         tNext = tNoder
     # 如果一个节点没有右子树
-    elif tNode.parent: 
+    elif tNode.parent:
         tCurrent = tNode
         tParent = tNode.parent
         # 如果一个节点有父节点,那么判断该节点是否是其父节点的右子节点

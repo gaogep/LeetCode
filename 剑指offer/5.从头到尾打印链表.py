@@ -27,7 +27,7 @@ for num in range(2, 6):
     head.insertVal2(num)
 
 
-# 利用堆栈
+# 利用栈
 def reversePrintl(head):
     stack = []
     while head:

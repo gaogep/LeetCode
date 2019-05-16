@@ -36,10 +36,13 @@ def hasPath(matrix, rows, cols, row, col, plen, path, visited):
             matrix[row][col] == path[plen] and not visited[row][col]:
         plen += 1
         visited[row][col] = True
-        h = hasPath(matrix, rows, cols, row, col-1, plen, path, visited) or \
-            hasPath(matrix, rows, cols, row-1, col, plen, path, visited) or \
-            hasPath(matrix, rows, cols, row, col+1, plen, path, visited) or \
-            hasPath(matrix, rows, cols, row+1, col, plen, path, visited)
+        # 往4个相邻的个格子走 上下左右
+        h = hasPath(matrix, rows, cols, row-1, col, plen, path, visited) or \
+            hasPath(matrix, rows, cols, row+1, col, plen, path, visited) or \
+            hasPath(matrix, rows, cols, row, col-1, plen, path, visited) or \
+            hasPath(matrix, rows, cols, row, col+1, plen, path, visited)
+
+        # 如果没走通 走过的长度减1
         if not h:
             plen -= 1
             visited[row][col] = False

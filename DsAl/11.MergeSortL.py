@@ -1,6 +1,6 @@
 from random import shuffle
 
-my_list = [i for i in range(50)]
+my_list = [i for i in range(5)]
 shuffle(my_list)
 
 
@@ -17,13 +17,12 @@ def merge(arr1, arr2):
 
 
 def MergeSort(arr):
-    flg = cnt = 0
+    cnt = 0
     arrlen = len(arr)
     result = [[i] for i in arr]
-    while flg < arrlen - 1:
+    while (cnt >> 1) < arrlen - 1:
         result.append(merge(result[cnt], result[cnt+1]))
         cnt += 2
-        flg += 1
     return result[-1]
 
 

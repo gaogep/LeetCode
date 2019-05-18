@@ -16,7 +16,11 @@ def cut_dp(length):
         return 1
     if length == 3:
         return 2
-    products = [0, 1, 2, 3]
+    products = [0 for i in range(length+1)]
+    products[0] = 0
+    products[1] = 1
+    products[2] = 2
+    products[3] = 3
 
     # 从f(4)开始计算
     for i in range(4, length+1):
@@ -25,7 +29,10 @@ def cut_dp(length):
             tmp = products[j] * products[i-j]
             if tmp > max_val:
                 max_val = tmp
-            products.append(max_val)
+            products[i] = max_val
 
     print(products)
-    return products[length]
+    return products[-1]
+
+
+print(cut_dp(10))

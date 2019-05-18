@@ -15,7 +15,7 @@ def cut_greedy(length):
     timesof3 = length // 3
 
     # 当绳子最后剩下的长度为４的时候 不能再去减长度为3的绳子段
-    # 此时更好的方法是把绳子剪成长度为2的两段 因为 2*2 > 3*1  
+    # 此时更好的方法是把绳子剪成长度为2的两段 因为 2*2>3*1
     if length - timesof3 * 3 == 1:
         timesof3 -= 1
     timesof2 = (length - timesof3 * 3) // 2

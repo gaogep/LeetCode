@@ -33,6 +33,3 @@ def cut_dp(length):
 
     print(products)
     return products[-1]
-
-
-print(cut_dp(10))

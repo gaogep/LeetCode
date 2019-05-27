@@ -26,7 +26,11 @@ for val in range(2, 11):
 # 2.k为0
 # 3.k的值大于链表的总节点数
 
-
+# 思路:
+# p1先走k-1
+# p1 p2一起走
+# p1停了 p2停
+# p2就是倒数k
 def printKnode(head, k):
     # 这里处理1、2两种情况
     if not head or k == 0:

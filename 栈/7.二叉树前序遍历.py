@@ -12,7 +12,7 @@ class Solution(object):
         :rtype: List[int]
         """
         res = []
-        if root == None:
+        if not root:
             return res
         res.append(root.val)
         res += self.preorderTraversal(root.left)

@@ -15,10 +15,10 @@ class treeNode:
 root = treeNode(1)
 root.left = treeNode(2)
 root.left.left = treeNode(4)
-# root.left.right = treeNode(5)
-# root.right = treeNode(3)
-# root.right.left = treeNode(6)
-# root.right.right = treeNode(7)
+root.left.right = treeNode(5)
+root.right = treeNode(3)
+root.right.left = treeNode(6)
+root.right.right = treeNode(7)
 
 
 def level(root):

@@ -32,7 +32,6 @@ def complexListNodeClone(head):
 
 
 c = complexListNodeClone(head)
-
 while c._next:
     print(c.value)
     c = c._next

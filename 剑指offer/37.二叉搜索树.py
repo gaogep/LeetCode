@@ -31,7 +31,7 @@ class bsTreeNote:
                 tmp = self.findMin(root.right)
                 root.value = tmp.value
                 root.right = self.delNode(root.right, tmp.value)
-            elif not root.left and not root.right:
+            elif not (root.left and root.right):
                 root = None
             elif root.left:
                 root = root.left

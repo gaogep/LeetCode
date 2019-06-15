@@ -9,7 +9,7 @@ def findNumber(arr):
     res = arr[0]
     times = 1
     length = len(arr)
-    # 找出出现频率最高的数字
+    # 找出出现频率最高的数字存入res
     for i in range(length):
         if times == 0:
             res = arr[i]

@@ -36,4 +36,3 @@ class Solution:
             elif ThisSum < 0:     # 如果当前子列和为负
                 ThisSum = 0       # 则不可能使后面的部分和增大 抛弃之
         return MaxSum
-

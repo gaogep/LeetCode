@@ -10,4 +10,3 @@ def bubble(arr):
 
 
 print(bubble(my_list))
-        

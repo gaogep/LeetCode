@@ -17,7 +17,7 @@ strs = 'arabcacfr'
 def findsubstring1(s):
     if not s or len(s) == 0:
         return
-    # maxlen为最大长度,curlen为当前子串的长度
+    # maxlen为最大长度,curlen为当前子串的长度->f(i-1)
     maxlen = curlen = 0
     recordLoc = defaultdict(lambda: -1)  # 用于记录字符上一次出现的位置
     for i in range(len(s)):

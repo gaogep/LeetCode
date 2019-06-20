@@ -2,6 +2,7 @@
 # 子字符串的长度。假设字符创中只包含a-z的字符
 # 例如在字符串中arabcacfr 最长不含重复字符的子字符串是 acfr
 
+from collections import defaultdict
 strs = 'arabcacfr'
 
 # 利用动态规划,定义f(i)为第i个字符为结尾的不包含重复字符的子字符串的最长长度
@@ -14,7 +15,23 @@ strs = 'arabcacfr'
 
 # 方法1
 def findsubstring1(s):
-    pass
+    if not s or len(s) == 0:
+        return
+    # maxlen为最大长度,curlen为当前子串的长度
+    maxlen = curlen = 0
+    recordLoc = defaultdict(lambda: -1)  # 用于记录字符上一次出现的位置
+    for i in range(len(s)):
+        prevLoc = recordLoc[s[i]]
+        if prevLoc < 0 or i - prevLoc > curlen:
+            curlen += 1
+        else:
+            if curlen > maxlen:
+                maxlen = curlen
+            curlen = i - prevLoc
+        recordLoc[s[i]] = i
+    if curlen > maxlen:
+        maxlen = curlen
+    return maxlen
 
 
 # -------------------------------
@@ -22,6 +39,8 @@ def findsubstring1(s):
 
 # 方法2
 def findsubstring2(s):
+    if not s or len(s) == 0:
+        return
     res = 0
     u = ''
     for i in range(len(s)):
@@ -35,4 +54,5 @@ def findsubstring2(s):
     return res
 
 
-print(findsubstring2(strs))
+# print(findsubstring2(strs))
+print(findsubstring1(strs))

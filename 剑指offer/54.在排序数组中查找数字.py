@@ -39,7 +39,7 @@ def getLastValue(arr, k):
 
 
 def countNumberTimes(arr, k):
-    times = None
+    times = 0
     if arr:
         times = getLastValue(arr, k) - getFirstValue(arr, k) + 1
     return times

@@ -21,8 +21,11 @@ def findNumber2(arr, n):
         mid = (low + high) // 2
         if arr[mid] == mid:
             low = mid + 1
+        # 如果mid位置的元素和下标不相等且前一个元素也和其下标不相等
+        # 那么就要往前查找
         elif arr[mid] != mid and arr[mid-1] != mid - 1:
             high = mid - 1
+        # 如果都相等 mid就是缺失的元素
         elif arr[mid] != mid and arr[mid-1] == mid - 1:
             return mid
 

@@ -32,4 +32,4 @@ def GetUglyNumber(index):
     return res[-1]
 
 
-print(GetUglyNumber(1500))
+print(GetUglyNumber(150))

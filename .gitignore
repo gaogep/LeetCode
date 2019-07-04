@@ -106,3 +106,4 @@ venv.bak/
 # config
 *.json
 0.test.py
+0.review.py

@@ -25,14 +25,14 @@ def repeat(arr):
 # 如果不是 看arr[arr[i]]这个地方的数字是否和arr[i]相等
 # 相等就重复了 直接跳出 不相等的话两边互换 继续查找
 def repeat_optimize(arr):
-    res = set()  # 防止重复元素被添加多次
+    res = []  # 防止重复元素被添加多次
     if arr:
         for i in range(len(arr)):
             while arr[i] != i:
                 t = arr[i]
                 # 判断索引和该索引上的数字是否相等
                 if arr[i] == arr[t]:
-                    res.add(arr[i])
+                    res.append(arr[i])
                     break
                 arr[i], arr[t] = arr[t], arr[i]
-    return list(res)
+    return []

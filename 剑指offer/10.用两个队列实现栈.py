@@ -1,15 +1,21 @@
-class qStack:
+class QueueStack:
     def __init__(self):
-        self.queue1 = []
-        self.queue2 = []
+        self.q1 = []
+        self.q2 = []
 
     def push(self, value):
-        self.queue1.append(value)
+        self.q1.append(value)
 
     def pop(self):
         ret = "The stack is empty"
-        if self.queue1:
-            while len(self.queue1) > 1:
-                self.queue2.append(self.queue1.pop(0))
-            ret = self.queue1.pop(0)
+        if not self.q1 and not self.q2:
+            return ret
+        if self.q1:
+            while len(self.q1) > 1:
+                self.q2.append(self.q1.pop(0))
+            ret = self.q1.pop(0)
+        else:
+            while len(self.q2) > 1:
+                self.q1.append(self.q2.pop(0))
+            ret = self.q2.pop(0)
         return ret

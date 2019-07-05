@@ -17,10 +17,10 @@ def findNext(tNode):
     tNext = None
     # 如果一个节点有右子树
     if tNode.right:
-        tNoder = tNode.right
-        while tNoder.left:
-            tNoder = tNoder.left
-        tNext = tNoder
+        tNode = tNode.right
+        while tNode.left:
+            tNode = tNode.left
+        tNext = tNode
     # 如果一个节点没有右子树
     elif tNode.parent:
         tCurrent = tNode
@@ -36,5 +36,5 @@ def findNext(tNode):
             tCurrent = tParent
             tParent = tParent.parent
         # 如果不是 下一个节点就是其父节点
-        tNext = tParent
+        tNext = tParent.parent
     return tNext

@@ -16,13 +16,13 @@ def adjust(arr, root, rest):
             break
         else:
             arr[parent] = arr[child]
-        parent = child
+            parent = child
     arr[parent] = init_val
 
 
 def heapsort(arr):
     length = len(arr)
-    for i in range(int(length/2)-1, -1, -1):
+    for i in range(length//2-1, -1, -1):
         adjust(arr, i, length)
     for i in range(length-1, 0, -1):
         arr[0], arr[i] = arr[i], arr[0]

@@ -23,8 +23,7 @@ def findRepNoModify1(arr):
 # 利用二分查找思想对要查找的数字进行拆分
 # 例如数组长度为8 开始就是1 结束就是7 中间值为4
 def findRepNoModify2(arr):
-    arrlen = len(arr)
-    if arrlen > 1:
+    if arr:
         start = 1
         end = len(arr) - 1
         while start <= end:
@@ -46,7 +45,7 @@ def findRepNoModify2(arr):
             # 否则在后一段中求中间数比较
             else:
                 start = mid + 1
-    return None
+    return False
 
 
 def cntRange(arr, start, end):

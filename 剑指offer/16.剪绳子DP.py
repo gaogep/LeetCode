@@ -4,12 +4,12 @@
 
 
 def cut_dp(length):
-    """
-    关于 products 的解释
-    在剪绳子这个题目中，由于必须要剪一刀，因此会导致当所给的绳子长度是小于4的时候，剪完之后的长度
-    小于剪之前的长度。但是我们在递推的时候，例如求f(5) = max{f(1)*f(4), f(2)*f(3)} = 6
-    如果令f(3)=2的话，将导致递推公式错误，因此，对于小于4的输入，我们特殊处理。
-    """
+    # 关于 products 的解释
+    # 在剪绳子这个题目中，由于必须要剪一刀，因此会导致当所给的绳子长度是小于4的时候，剪完之后的长度
+    # 小于剪之前的长度。但是我们在递推的时候，例如求f(5) = max{f(1)*f(4), f(2)*f(3)} = 6
+    # 如果令f(3)=2的话，将导致递推公式错误，因此，对于小于4的输入，我们特殊处理
+    # f(n) = max(f(n) * f(n-i))
+
     if length < 2:
         return 0
     if length == 2:
@@ -17,10 +17,10 @@ def cut_dp(length):
     if length == 3:
         return 2
     products = [0 for i in range(length+1)]
-    products[0] = 0
-    products[1] = 1
-    products[2] = 2
-    products[3] = 3
+    products[0] = 0  # f(0)
+    products[1] = 1  # f(1)
+    products[2] = 2  # f(2)
+    products[3] = 3  # f(3)
 
     # 从f(4)开始计算
     for i in range(4, length+1):

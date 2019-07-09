@@ -9,9 +9,9 @@ def fib(n):
         return res[n]
     a, b = 0, 1
     for i in range(2, n+1):
-        s = a + b
-        a = b
-        b = s
+        s = a + b  # f(2) = f(0) + f(1)
+        a = b      # f(0) = f(1)
+        b = s      # f(1) = f(2)
     return s
 
 

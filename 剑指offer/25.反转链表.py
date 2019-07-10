@@ -15,35 +15,25 @@ class listNode:
 
 
 head = listNode(1)
-for val in range(2, 11):
+for val in range(2, 6):
     head.insert(val)
 
 
-def reverseList(Head):
-    # 1.头节点为空的情况
-    if not Head:
-        return None
+def reverseList(head):
+    # 处理头结点为空或者只包含头结点的情况
+    if not (head and head.Next):
+        return head
 
-    head = Head
-    prev = None
-    rear = Head.Next
-    # 2.只有1个节点的情况
-    if not rear:
-        return Head
+    pre = None
+    cur = head
+    while cur:
+        rear = cur.Next
+        cur.Next = pre
+        pre = cur
+        cur = rear
 
-    # 3.有多个节点的情况
-    while rear:
-        # 当反转头节点的时候 头节点变尾节点
-        # 要将头结点的下一个节点置为空
-        if not prev:
-            head.Next = None
-        prev = head
-        head = rear
-        rear = rear.Next
-        head.Next = prev
-
-    return head
+    return pre
 
 
-new_head = reverseList(head)
-head = None
+head = reverseList(listNode(1))
+print(head.Value)

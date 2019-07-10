@@ -23,30 +23,24 @@ for val in range(4, 9, 2):
     h2.insert(val)
 
 
-def mergeAscList(head1, head2):
-    new_head = listNode(-1)
-    tmp = new_head
+def mergeList(head1, head2):
+    thead = tp = listNode(-1)
     while head1 and head2:
-        if head1.Value > head2.Value:
-            tmp.Next = listNode(head2.Value)
-            tmp = tmp.Next
+        if head1.Value >= head2.Value:
+            tp.Next = head2
             head2 = head2.Next
+            tp = tp.Next
         else:
-            tmp.Next = listNode(head1.Value)
-            tmp = tmp.Next
+            tp.Next = head1
             head1 = head1.Next
+            tp = tp.Next
 
     if head1:
-        tmp.Next = head1
+        tp.Next = head1
     if head2:
-        tmp.Next = head2
+        tp.Next = head2
 
-    return new_head.Next
+    return thead
 
 
-new = mergeAscList(h1, h2)
-tmp = new
-
-for i in range(8):
-    print(tmp.Value)
-    tmp = tmp.Next
+head = mergeList(h1, h2)

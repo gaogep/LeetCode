@@ -27,7 +27,7 @@ h6.Next = h3
 
 def meetingNode(head):
     if not head:
-        return None
+        return
     # 设置快慢两个指针
     # pslow一次走一步
     # pfast一次走两步
@@ -48,13 +48,13 @@ def meetingNode(head):
         pf = pf.Next
         if pf:
             pf = pf.Next
-    return None
+    return
 
 
 def findEntry(head):
     mnode = meetingNode(head)
     if not mnode:
-        return None
+        return
 
     # 得到环中节点的个数
     circleNodes = 1
@@ -66,6 +66,7 @@ def findEntry(head):
     p1 = head
     while circleNodes != 0:
         p1 = p1.Next
+        circleNodes -= 1
 
     p2 = head
     # 再同时以相同的速度移动p1 p2指针

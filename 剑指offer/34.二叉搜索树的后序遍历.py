@@ -9,8 +9,7 @@ def isPostOrder(arr):
     if not arr:
         return False
 
-    root = arr[-1]
-    arr.pop()
+    root = arr.pop()
 
     # 二叉搜索树的左子树全部小于根节点
     t = 0

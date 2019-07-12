@@ -13,12 +13,12 @@ def isSymmetrical(root1, root2):
     if not root1 and not root2:
         return True
 
-    if not root1 or not root2:
+    if not (root1 and root2):
         return False
 
     if root1.value != root2.value:
         return False
-    # 左右相等 尤左相等 即为对称
+    # 左右相等 右左相等 即为对称
     return isSymmetrical(root1.left, root2.right) \
         and isSymmetrical(root1.right, root2.left)
 

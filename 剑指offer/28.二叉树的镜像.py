@@ -10,9 +10,9 @@ class treeNode:
 
 root = treeNode(1)
 root.left = treeNode(2)
-# root.right = treeNode(3)
-# root.left.left = treeNode(4)
-# root.right.right = treeNode(5)
+root.right = treeNode(3)
+root.left.left = treeNode(4)
+root.right.right = treeNode(5)
 
 
 def showMirror(root):
@@ -43,5 +43,8 @@ def showMirrorLoop(root):
 
 
 showMirrorLoop(root)
-print(root.left)
-print(root.right)
+print(root.value)
+print(root.left.value, " ", end="")
+print(root.right.value)
+print(root.left.left.value, " ", end="")
+print(root.right.right.value)

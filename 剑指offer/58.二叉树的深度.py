@@ -5,7 +5,7 @@
 # 递归实现：二叉树的最大深度为左右子树的最大深度加1
 def getTreeDepth(root):
     if not root:
-        return
+        return 0
     left = getTreeDepth(root.left)
     right = getTreeDepth(root.right)
     return max(left, right) + 1

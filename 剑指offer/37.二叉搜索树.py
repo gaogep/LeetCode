@@ -38,9 +38,3 @@ class bsTreeNote:
             else:
                 root = root.right
         return root
-
-
-root = bsTreeNote(5)
-root.insertt(4)
-root.insertt(3)
-root.delNode(root, 3)

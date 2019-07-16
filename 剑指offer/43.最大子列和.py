@@ -8,7 +8,7 @@ def maxSusequence(arr):
         now += num
         if now > maxSum:
             maxSum = now
-        elif now < 0:
+        if now < 0:
             now = 0
     return maxSum
 

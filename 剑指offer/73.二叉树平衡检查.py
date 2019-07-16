@@ -24,9 +24,9 @@ def getTreeDepth(root):
 
 
 def isBalance(root):
-    if not root:
-        return
     ret = True
+    if not root:
+        ret = False
     left_depth = getTreeDepth(root.left)
     right_depth = getTreeDepth(root.right)
     if abs(left_depth - right_depth) > 1:

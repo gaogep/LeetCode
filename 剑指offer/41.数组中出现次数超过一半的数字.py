@@ -10,16 +10,18 @@ def findNumber(arr):
     times = 1
     length = len(arr)
     # 找出出现频率最高的数字存入res
-    for i in range(length):
+    for i in range(1, length):
         if times == 0:
             res = arr[i]
             times = 1
-        elif res == arr[i]:
+
+        if res == arr[i]:
             times += 1
         else:
             times -= 1
+
     # 确认出现频率最高的数字的出现次数超出数组长度的一半
-    if length - len(set(arr)) + 1 < (length >> 1):
+    if length - len(set(arr)) + 1 < length // 2:
         res = None
     return res
 

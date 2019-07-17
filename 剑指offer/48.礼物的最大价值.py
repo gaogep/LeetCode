@@ -28,7 +28,7 @@ def getValuableGift(arr):
     for i in range(rows):
         for j in range(cols):
             dw = maxvalues[i-1][j]
-            rt = maxvalues[i][j-1] 
+            rt = maxvalues[i][j-1]
             maxvalues[i][j] = max(dw, rt) + arr[i][j]
     return maxvalues[rows-1][cols-1]
 

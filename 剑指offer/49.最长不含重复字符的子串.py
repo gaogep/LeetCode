@@ -38,21 +38,16 @@ def findsubstring1(s):
 
 
 # 方法2
-def findsubstring2(s):
-    if not s or len(s) == 0:
+def findsubstring2(strs):
+    if not strs or len(strs) == 0:
         return
     res = 0
-    u = ''
-    for i in range(len(s)):
-        t = s[i]
-        if t not in u:
-            u += t
-            res = max(len(u), res)
+    record = ''
+    for char in strs:
+        if char not in record:
+            record += char
+            res = max(len(record), res)
         else:
-            index = u.find(t)
-            u = u[index+1:]+t
+            index = record.find(char)
+            record = record[index+1:] + char
     return res
-
-
-# print(findsubstring2(strs))
-print(findsubstring1(strs))

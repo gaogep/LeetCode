@@ -35,5 +35,14 @@ def count(arr1, arr2):
     return res
 
 
+def findReversePairs2(arr):
+    cnt = 0
+    sorted_arr = sorted(arr)
+    print(sorted_arr)
+    for num in sorted_arr:
+        cnt += arr.index(num)
+    return cnt
+
+
 findReversePairs(arr)
 print(cnt)

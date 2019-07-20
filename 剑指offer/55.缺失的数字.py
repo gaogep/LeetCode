@@ -12,12 +12,12 @@ def findNumber1(arr):
 
 
 # 解法2: 二分查找
-def findNumber2(arr, n):
+def findMissedNumber(arr, n):
     if not arr:
         return
     low = 0
     high = n - 1
-    while low < high:
+    while low <= high:
         mid = (low + high) // 2
         if arr[mid] == mid:
             low = mid + 1
@@ -30,4 +30,4 @@ def findNumber2(arr, n):
             return mid
 
 
-print(findNumber2(arr, 10))
+print(findMissedNumber(arr, 10))

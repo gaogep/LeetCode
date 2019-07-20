@@ -1,6 +1,7 @@
-# 给定一棵二叉搜索树，请找出其中第Kda的节点
+# 给定一棵二叉 <<搜索树>>，请找出其中第K大的节点
 
 
+# 直接中序遍历
 def findK(root, k):
     if not root:
         return

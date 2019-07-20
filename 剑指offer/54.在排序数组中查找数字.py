@@ -7,7 +7,7 @@ arr = [1, 2, 2, 3, 3, 3, 3, 4, 5]
 def getFirstValue(arr, k):
     low = 0
     high = len(arr) - 1
-    while low < high:
+    while low <= high:
         mid = (low + high) // 2
         if arr[mid] > k:
             high = mid - 1
@@ -17,14 +17,14 @@ def getFirstValue(arr, k):
             # 往前找
             if arr[mid-1] != k:
                 return mid
-            elif arr[mid-1] == k:
+            else:
                 high = mid
 
 
 def getLastValue(arr, k):
     low = 0
     high = len(arr) - 1
-    while low < high:
+    while low <= high:
         mid = (low + high) // 2
         if arr[mid] > k:
             high = mid - 1
@@ -34,7 +34,7 @@ def getLastValue(arr, k):
             # 往后找
             if arr[mid+1] != k:
                 return mid
-            elif arr[mid+1] == k:
+            else:
                 low = mid
 
 

@@ -6,27 +6,26 @@ arr = [1, 2, 4, 7, 11, 15]
 
 
 # 解法1: 利用哈希表
-def getSumS1(arr, s):
+def getSum(arr, s):
     if not arr:
         return
-    ret = []
+    ret = None
     hash_ = dict(zip(arr, range(len(arr))))
-    for i in range(len(arr)):
-        res = s - arr[i]
+    for num in arr:
+        res = s - num
         if hash_.get(res):
-            ret.append(res)
-            ret.append(arr[i])
+            ret = [num, res]
             break
     return ret
 
 
 # 解法2: 利用最大最小值
-def getSumS2(arr, s):
+def getSum2(arr, s):
     if not arr:
         return
     low = 0
     high = len(arr) - 1
-    while low < high:
+    while low <= high:
         if arr[low] + arr[high] > s:
             high -= 1
         elif arr[low] + arr[high] < s:
@@ -35,4 +34,4 @@ def getSumS2(arr, s):
             return [arr[low], arr[high]]
 
 
-print(getSumS2(arr, 15))
+print(getSum2(arr, 11))

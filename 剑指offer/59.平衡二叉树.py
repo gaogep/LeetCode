@@ -3,7 +3,10 @@
 
 
 def isBalanced(root):
-    return getDepth(root) != -1
+    banlance = False
+    if getDepth(root):
+        banlance = True
+    return banlance
 
 
 # 在判断左右子树是否平衡的过程中把深度计算出来
@@ -13,11 +16,7 @@ def getDepth(root):
     if not root:
         return 0
     left = getDepth(root.left)
-    if left == -1:
-        return left
     right = getDepth(root.right)
-    if right == -1:
-        return -1
-    if abs(left - right) > 1:
-        return -1
-    return max(left + right) + 1
+    if abs(left-right) > 1:
+        return False
+    return max(left, right) + 1

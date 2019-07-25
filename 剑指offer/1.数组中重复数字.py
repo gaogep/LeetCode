@@ -35,4 +35,7 @@ def repeat_optimize(arr):
                     res.append(arr[i])
                     break
                 arr[i], arr[t] = arr[t], arr[i]
-    return []
+    return res
+
+
+print(repeat_optimize(arr))

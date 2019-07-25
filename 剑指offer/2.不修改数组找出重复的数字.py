@@ -27,7 +27,7 @@ def findRepNoModify2(arr):
         start = 1
         end = len(arr) - 1
         while start <= end:
-            mid = (start + end) >> 1
+            mid = (start + end) // 2
             # 计算[start, mid]数字之间的数目
             # 根据cnt得到重复数字区间
             cnt = cntRange(arr, start, mid)
@@ -54,3 +54,6 @@ def cntRange(arr, start, end):
         if start <= num <= end:
             cnt += 1
     return cnt
+
+
+print(findRepNoModify2(rep_arr))

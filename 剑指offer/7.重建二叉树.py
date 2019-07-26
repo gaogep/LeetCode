@@ -8,16 +8,13 @@ class treeNode:
         self.right = right
 
 
-def buildTree(preorder, inorder):
+def rebuild(preorder, inorder):
     if not inorder:
-        return None
+        return
     root = treeNode(preorder[0])
-    pos = inorder.index(preorder[0])
-    lefttree = inorder[:pos]
-    righttree = inorder[pos+1:]
-    preorder.pop(0)
-    root.left = buildTree(preorder, lefttree)
-    root.right = buildTree(preorder, righttree)
+    pos = inorder.index(preorder.pop(0))
+    root.left = rebuild(preorder, inorder[:pos])
+    root.right = rebuild(preorder, inorder[pos+1:])
     return root
 
 

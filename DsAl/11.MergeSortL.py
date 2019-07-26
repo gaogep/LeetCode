@@ -1,7 +1,8 @@
 from random import shuffle
 
-my_list = [i for i in range(8)]
+my_list = [i for i in range(5000)]
 shuffle(my_list)
+print(my_list)
 
 
 def merge(arr1, arr2):
@@ -17,14 +18,10 @@ def merge(arr1, arr2):
 
 
 def MergeSort(arr):
-    cnt = 0
-    arrlen = len(arr)
     result = [[i] for i in arr]
-    while cnt // 2 < arrlen - 1:
-        result.append(merge(result[cnt], result[cnt+1]))
-        cnt += 2
-    print(result)
-    return result[-1]
+    while len(result) != 1:
+        result.append(merge(result.pop(0), result.pop(0)))
+    return result[0]
 
 
 print(MergeSort(my_list))

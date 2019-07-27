@@ -9,10 +9,6 @@ def deleteNode(head, present):
         tmp = present.Next
         present.Value = tmp.Value
         present.Next = tmp.Next
-        return head
-    elif head is present:
-        head = head.Next
-        return head
     else:
         h = head
         while h.Next != present:

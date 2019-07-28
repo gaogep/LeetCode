@@ -3,24 +3,25 @@
 # 们有一个背包，它能够承载的重量是W.现在，我们希望往包里装这些物品
 # 使得包里装的物品价值最大化，那么我们该如何来选择装的东西呢？
 
-
 import numpy as np
 
 
-def bagProblem(vlist, wlist, limitw):
-    """"
-    假定我们定义一个函数c[i, w]表示到第i个元素为止，在限制总重量为w的情况下我
-    们所能选择到的最优解.那么这个最优解要么包含有i这个物品，要么不包含，肯定是这
-    两种情况中的一种.如果我们选择了第i个物品，那么实际上这个最优解是c[i-1, w-wi]+vi
-    而如果我们没有选择第i个物品，这个最优解是c[i-1, w]
-    """
-    res = np.zeros((len(vlist)+1, limitw+1), dtype=np.int32)
-    for i in range(1, len(vlist)+1):
-        for j in range(1, limitw+1):
-            if wlist[i] <= j:
-                v1 = res[i-1, j-wlist[i]] + vlist[i]
-                v2 = res[i-1, j]
-                res[i, j] = max(v1, v2)
-            else:
-                res[i, j] = res[i-1, j]
-    return res[-1, -1]
+# 函数c[i, w]表示到第i个元素为止，在限制总重量为w的情况下我们所能选择到的最优解
+# 那么这个最优解要么包含有i这个物品，要么不包含，肯定是这两种情况中的一种
+def solve(vlist, wlist, totalWeight, totalLength):
+    ret = np.zeros((totalLength+1, totalWeight+1), dtype=np.int32)
+    for i in range(1, totalLength+1):
+        for j in range(1, totalWeight+1):  # i表示第几件物品, j表示背包的总重量
+            if wlist[i] <= j:              # 如果第i件物品的总重量没有超过限制，选它！
+                select_i = ret[i-1, j-wlist[i]] + vlist[i]
+                nselect_i = ret[i-1, j]
+                ret[i, j] = max(select_i, nselect_i)
+            else:                          # 如果第i件物品的总重量超过限制，不选它！
+                ret[i, j] = ret[i-1, j]
+    return ret[-1, -1]
+
+
+v = [0, 60, 100, 120]
+w = [0, 10, 20, 30]
+n, weight = 3, 50
+print(solve(v, w, weight, n))

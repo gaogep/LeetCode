@@ -1,6 +1,7 @@
 # 给你一根长度为n的绳子,请把绳子剪成m段,每段绳子的长度(n > 1 m > 1)
 # 记为k[0] k[1] ... k[m] 请问k[0] * k[1] * ... k[m]
 # 可能的最大乘积是多少?
+import numpy as np
 
 
 def cut_dp(length):
@@ -16,7 +17,7 @@ def cut_dp(length):
         return 1
     if length == 3:
         return 2
-    products = [0 for i in range(length+1)]
+    products = np.zeros(length+1, dtype=np.int32)
     products[0] = 0  # f(0)
     products[1] = 1  # f(1)
     products[2] = 2  # f(2)
@@ -33,3 +34,6 @@ def cut_dp(length):
 
     print(products)
     return products[-1]
+
+
+print(cut_dp(8))

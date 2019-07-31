@@ -18,7 +18,7 @@ def isSymmetrical(root1, root2):
 
     if root1.value != root2.value:
         return False
-    # 左右相等 右左相等 即为对称
+    # 判断前序遍历和从右子树开始的前序遍历是否相等
     return isSymmetrical(root1.left, root2.right) \
         and isSymmetrical(root1.right, root2.left)
 

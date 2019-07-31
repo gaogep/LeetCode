@@ -21,26 +21,22 @@ root.right.left = treeNode(6)
 root.right.right = treeNode(7)
 
 
-def level(root):
-    if root:
-        queue = []
-        queue.append(root)
-        nextLevel = 0
-        toBePrinted = 1
-        while queue:
-            tmp = queue.pop(0)
-            print(tmp.value, ' ',  end='')
-            if tmp.left:
-                queue.append(tmp.left)
-                nextLevel += 1
-            if tmp.right:
-                queue.append(tmp.right)
-                nextLevel += 1
-            toBePrinted -= 1
-            if toBePrinted == 0:
-                print('\n')
-                toBePrinted = nextLevel
-                nextLevel = 0
+def print_level(root):
+    queue = [[root]]
+    while queue:
+        nex_level = []
+        cur_level = queue.pop(0)
+        for node in cur_level:
+            print(node.value, ' ', end="")
+            if node.left:
+                nex_level.append(node.left)
+            if node.right:
+                nex_level.append(node.right)
+        if nex_level:
+            queue.append(nex_level)
+            print("\n")
+        else:
+            pass
 
 
-level(root)
+print_level(root)

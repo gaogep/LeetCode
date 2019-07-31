@@ -21,10 +21,7 @@ def showMirror(root):
     if not root.left and not root.right:
         return
 
-    temp = root.left
-    root.left = root.right
-    root.right = temp
-
+    root.left, root.right = root.right, root.left
     if root.left:
         showMirror(root.left)
     if root.right:

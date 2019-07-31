@@ -40,7 +40,7 @@ def mergeList(head1, head2):
     if head2:
         tp.Next = head2
 
-    return thead
+    return thead.Next
 
 
 head = mergeList(h1, h2)

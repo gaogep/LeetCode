@@ -35,9 +35,9 @@ def zigzagPrint(root):
 
             while stack2:
                 node = stack2.pop()
-                if node.left:
-                    stack1.append(node.right)
                 if node.right:
+                    stack1.append(node.right)
+                if node.left:
                     stack1.append(node.left)
                 print(node.value, ' ', end='')
             if stack1 or stack2:

@@ -36,8 +36,7 @@ def printKnode(head, k):
     if not head or k == 0:
         return None
 
-    p1 = head
-    p2 = head
+    p1 = p2 = head
     # 走k-1步
     for i in range(k-1):
         if p1.Next:  # 这里的if判断用于处理第3中情况

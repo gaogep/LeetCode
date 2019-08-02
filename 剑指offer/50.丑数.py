@@ -18,7 +18,7 @@ def GetUglyNumber(index):
     if index < 1:
         return 0
     res = [1]
-    t2, t3, t5 = 0, 0, 0
+    t2 = t3 = t5 = 0
     while len(res) < index:
         minNum = (min(res[t2]*2, res[t3]*3, res[t5]*5))
         if minNum > res[-1]:

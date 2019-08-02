@@ -2,7 +2,7 @@
 # 入输入 "abacasdfadasdfaseff" 则输出b
 
 
-strs = "abaccdeff"
+strs = "abaaccc"
 
 
 def findOne(strs):

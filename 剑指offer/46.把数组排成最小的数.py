@@ -6,7 +6,7 @@ from functools import cmp_to_key
 def comparestr(a, b):
     if a+b > b+a:
         return 1
-    if a+b < b+a:
+    elif a+b < b+a:
         return -1
     else:
         return 0

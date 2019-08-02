@@ -24,7 +24,7 @@ def getValuableGift(arr):
         return
     rows = len(arr)
     cols = len(arr[0])
-    maxvalues = zeros((rows, cols))
+    maxvalues = zeros((rows, cols), dtype=np.int32)
     for i in range(rows):
         for j in range(cols):
             dw = maxvalues[i-1][j]

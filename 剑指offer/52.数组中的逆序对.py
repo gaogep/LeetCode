@@ -44,5 +44,5 @@ def findReversePairs2(arr):
     return cnt
 
 
-findReversePairs(arr)
+print(findReversePairs2(arr))
 print(cnt)

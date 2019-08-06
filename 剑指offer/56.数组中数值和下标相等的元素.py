@@ -9,7 +9,7 @@ def findIndexEqNumber(arr):
         return
     low = 0
     high = len(arr) - 1
-    while low < high:
+    while low <= high:
         mid = (low + high) // 2
         if arr[mid] == mid:
             return arr[mid]

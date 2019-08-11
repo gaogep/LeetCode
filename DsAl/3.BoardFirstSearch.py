@@ -10,10 +10,8 @@ graph['jonny'] = []
 
 
 def bfs(start):
-    queue = []
-    meet = set()
-    queue.append(start)
-    meet.add(start)
+    queue = [start]
+    meet = {start}
     parent = {start: None}  # 添加一个parent记录前一个点的前一个点 构成了单源最短路算法
     while queue:
         tmp = queue.pop(0)

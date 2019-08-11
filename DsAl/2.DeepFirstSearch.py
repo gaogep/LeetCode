@@ -20,10 +20,8 @@ def dfsr(start):
 
 
 def dfsl(start):
-    stack = []
-    meet = set()
-    stack.append(start)
-    meet.add(start)
+    stack = [start]
+    meet = {start}
     while stack:
         tmp = stack.pop()
         for node in graph[tmp]:

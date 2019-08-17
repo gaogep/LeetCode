@@ -4,7 +4,7 @@
 # (7, 6) (7, 5) (7, 4) (6, 4) (5, 4)
 
 
-arr = [7, 5, 6, 4]
+arr = [7, 5, 6, 4, 3, 1]
 cnt = 0
 
 
@@ -41,7 +41,7 @@ def findReversePairs2(arr):
     print(sorted_arr)
     for num in sorted_arr:
         cnt += arr.index(num)
-    return cnt
+    return cnt - 1
 
 
 print(findReversePairs2(arr))

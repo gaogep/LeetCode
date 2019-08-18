@@ -15,5 +15,5 @@ def createMinmalBst(arr):
     mid = len(arr) // 2
     root = treeNode(arr[mid])
     root.left = createMinmalBst(arr[:mid])
-    root.right = createMinmalBst(arr[mid:])
+    root.right = createMinmalBst(arr[mid+1:])
     return root

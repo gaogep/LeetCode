@@ -26,9 +26,12 @@ def showMirror(root):
         showMirror(root.left)
     if root.right:
         showMirror(root.right)
+    return root
 
 
 def showMirrorLoop(root):
+    if not root:
+        return
     queue = [root]
     while queue:
         node = queue.pop(0)
@@ -37,6 +40,7 @@ def showMirrorLoop(root):
         if node.right:
             queue.append(node.right)
         node.left, node.right = node.right, node.left
+    return root
 
 
 showMirrorLoop(root)

@@ -40,9 +40,12 @@ def findRepNoModify2(arr):
                     break
             # 如果count数目 > 中间数字到起始数字之差
             # 一定存在重复数字，继续在这一段中求中间数比较
+            # 因此要将end赋值为mid,因为mid可能就是重复的数字
             if cnt > mid - start + 1:
                 end = mid
             # 否则在后一段中求中间数比较
+            # 此时start=mid+1
+            # 因为已经排除了mid是重复数字的可能性
             else:
                 start = mid + 1
     return False
